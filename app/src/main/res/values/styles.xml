@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estilos reutilizables: así todas las vistas tienen los mismos tamaños, colores y espacios -->
+<resources>
+
+    <!-- ===== Interruptores (MaterialSwitch) ===== -->
+    <style name="Interruptor" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/switch_boton</item>
+        <item name="trackTint">@color/switch_pista</item>
+        <item name="trackDecorationTint">@color/verde_azulado</item>
+    </style>
+
+    <!-- ===== Campos de texto con borde redondeado ===== -->
+    <style name="CampoTexto" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/verde_azulado</item>
+        <item name="hintTextColor">@color/verde_azulado</item>
+        <item name="startIconTint">@color/verde_azulado</item>
+        <item name="endIconTint">@color/verde_azulado</item>
+    </style>
+
+    <style name="CampoTextoEstilo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <!-- ===== Títulos de sección con barrita menta ===== -->
+    <style name="TituloSeccion">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:drawableStart">@drawable/barra_titulo</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/azul_noche</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- ===== Banda azul noche arriba de cada vista ===== -->
+    <style name="Cabecera">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_cabecera</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">26dp</item>
+    </style>
+
+    <style name="CabeceraTitulo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CabeceraTexto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- ===== Botones ===== -->
+    <style name="BotonPrincipal" parent="Widget.Material3.Button">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/verde_azulado</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="BotonMenta" parent="BotonPrincipal">
+        <item name="backgroundTint">@color/verde_menta</item>
+        <item name="android:textColor">@color/azul_noche</item>
+        <item name="iconTint">@color/azul_noche</item>
+    </style>
+
+    <style name="BotonOscuro" parent="BotonPrincipal">
+        <item name="backgroundTint">@color/azul_noche</item>
+    </style>
+
+    <style name="BotonContorno" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:textColor">@color/verde_azulado</item>
+        <item name="android:textStyle">bold</item>
+        <item name="strokeColor">@color/verde_azulado</item>
+        <item name="iconTint">@color/verde_azulado</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="BotonTexto" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/verde_azulado</item>
+        <item name="android:textStyle">bold</item>
+        <item name="iconTint">@color/verde_azulado</item>
+    </style>
+
+    <!-- ===== Tarjetas pequeñas blancas (accesos y métricas) ===== -->
+    <style name="TarjetaColor">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="cardBackgroundColor">@color/blanco</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Contenido alineado a la izquierda (tarjetas de métricas) -->
+    <style name="ContenidoTarjetaColor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/deco_tarjeta_menta</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Contenido centrado (tarjetas cuadradas) -->
+    <style name="ContenidoCuadro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/deco_cuadro</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <!-- Círculo de color con el ícono (el color se da con backgroundTint) -->
+    <style name="IconoTarjetaColor">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/circulo</item>
+        <item name="android:padding">11dp</item>
+    </style>
+
+    <style name="TituloTarjetaColor">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/azul_noche</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextoTarjetaColor">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/verde_azulado</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- ===== Tarjeta blanca de lista ===== -->
+    <style name="TarjetaBlanca">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardBackgroundColor">@color/blanco</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- ===== Etiqueta en píldora (estado del formulario) ===== -->
+    <style name="Etiqueta">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_chip</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ===== Chips de filtro ===== -->
+    <style name="ChipFiltro" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_fondo</item>
+        <item name="android:textColor">@color/chip_texto</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ===== Textos ===== -->
+    <style name="TextoTitulo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/azul_noche</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextoSecundario">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/verde_azulado</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ===== Métricas pequeñas (número grande + etiqueta) ===== -->
+    <style name="MetricaContenedor">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MetricaValor">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/azul_noche</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MetricaEtiqueta">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/verde_azulado</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- ===== Fila de configuración (texto + interruptor) ===== -->
+    <style name="FilaAjuste">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- Forma circular para fotos (ShapeableImageView) -->
+    <style name="FormaCirculo">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Menú de los tres puntos de la Toolbar: fondo blanco, texto azul noche -->
+    <style name="MenuToolbar" parent="ThemeOverlay.Material3.Light">
+        <item name="colorSurface">@color/blanco</item>
+        <item name="colorSurfaceContainer">@color/blanco</item>
+        <item name="colorOnSurface">@color/azul_noche</item>
+        <item name="android:textColorPrimary">@color/azul_noche</item>
+    </style>
+</resources>

@@ -1,0 +1,66 @@
+rules_version = '2';
+
+// =============================================================
+// REGLAS DE SEGURIDAD DE FORM.IO (Cloud Firestore)
+//  - Cada administrador solo ve y edita SUS formularios, perfil y plantillas.
+//  - Cualquier persona (sin cuenta) puede LEER un formulario publicado,
+//    sumar una visita y ENVIAR una respuesta si el formulario sigue abierto.
+//  - Nadie más puede leer las respuestas: solo el dueño del formulario.
+// =============================================================
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function esDueno(data) {
+      return request.auth != null && request.auth.uid == data.creadorId;
+    }
+
+    // ¿El formulario acepta respuestas ahora mismo?
+    function recibe(f) {
+      return f.publicado == true && f.abierto == true && f.archivado == false
+        && (f.limiteRespuestas == 0 || f.totalRespuestas < f.limiteRespuestas)
+        && (f.fechaLimite == 0 || request.time.toMillis() < f.fechaLimite);
+    }
+
+    function formulario(id) {
+      return get(/databases/$(database)/documents/formularios/$(id)).data;
+    }
+
+    // El formulario como queda DESPUÉS de la escritura (sirve cuando se crea junto a sus respuestas)
+    function formularioDespues(id) {
+      return getAfter(/databases/$(database)/documents/formularios/$(id)).data;
+    }
+
+    // Perfil del administrador y sus plantillas propias
+    match /usuarios/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      match /plantillas/{plantilla} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // Formularios
+    match /formularios/{id} {
+      allow read: if resource.data.publicado == true || esDueno(resource.data);
+      allow create: if request.auth != null && request.resource.data.creadorId == request.auth.uid;
+      allow delete: if esDueno(resource.data);
+      allow update: if esDueno(resource.data)
+        // visitante: solo puede sumar 1 visita
+        || (resource.data.publicado == true
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['visitas'])
+            && request.resource.data.visitas == resource.data.visitas + 1)
+        // visitante que responde: solo puede sumar 1 al total de respuestas
+        || (recibe(resource.data)
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['totalRespuestas'])
+            && request.resource.data.totalRespuestas == resource.data.totalRespuestas + 1);
+
+      // Respuestas anónimas
+      match /respuestas/{respuesta} {
+        allow read, delete: if esDueno(formulario(id));
+        allow create: if esDueno(formularioDespues(id))
+          || (recibe(formulario(id))
+              && request.resource.data.numero == formularioDespues(id).totalRespuestas);
+      }
+    }
+  }
+}

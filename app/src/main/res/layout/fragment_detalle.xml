@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DETALLE DEL FORMULARIO: centro de control de un formulario
+     (estado, abrir/cerrar 2.6, publicar 4.1 y acceso a todas sus opciones) -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            style="@style/Cabecera"
+            android:paddingBottom="72dp">
+
+            <TextView
+                android:id="@+id/txtEstado"
+                style="@style/Etiqueta" />
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                style="@style/CabeceraTitulo"
+                android:layout_marginTop="8dp"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                style="@style/CabeceraTexto" />
+
+            <TextView
+                android:id="@+id/txtCreado"
+                style="@style/CabeceraTexto"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_calendario_p"
+                android:drawablePadding="6dp"
+                android:drawableTint="@color/verde_menta"
+                android:gravity="center_vertical"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 2.6 Abrir y cerrar + métricas rápidas -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-52dp"
+            android:layout_marginEnd="16dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/filaAbierto"
+                    style="@style/FilaAjuste"
+                    android:paddingTop="0dp">
+
+                    <View
+                        android:id="@+id/puntoEstado"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_menta" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtRecibiendo"
+                            style="@style/TextoTitulo"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/txtMotivo"
+                            style="@style/TextoSecundario"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swAbierto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/fondo_borde"
+                    android:orientation="horizontal"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <LinearLayout style="@style/MetricaContenedor">
+
+                        <TextView
+                            android:id="@+id/txtMetRespuestas"
+                            style="@style/MetricaValor" />
+
+                        <TextView
+                            style="@style/MetricaEtiqueta"
+                            android:text="@string/metrica_respuestas" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/MetricaContenedor">
+
+                        <TextView
+                            android:id="@+id/txtMetVisitas"
+                            style="@style/MetricaValor" />
+
+                        <TextView
+                            style="@style/MetricaEtiqueta"
+                            android:text="@string/metrica_visitas" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/MetricaContenedor">
+
+                        <TextView
+                            android:id="@+id/txtMetTiempo"
+                            style="@style/MetricaValor" />
+
+                        <TextView
+                            style="@style/MetricaEtiqueta"
+                            android:text="@string/metrica_tiempo" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4.1 Publicar (solo si es Borrador) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPublicar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/verde_menta"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/deco_tarjeta"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:text="@string/publicar_aviso"
+                    android:textColor="@color/azul_noche"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPublicar"
+                    style="@style/BotonOscuro"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/btn_publicar"
+                    app:icon="@drawable/ic_qr" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/detalle_opciones" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileEditar"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/verde_azulado">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/verde_azulado"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_editar"
+                            app:tint="@color/blanco" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_editar" />
+
+                        <TextView
+                            android:id="@+id/txtTileEditar"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_editar_desc" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileQr"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/azul_noche">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/azul_noche"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_qr"
+                            app:tint="@color/verde_menta" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_qr" />
+
+                        <TextView
+                            android:id="@+id/txtTileQr"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_qr_desc" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileRespuestas"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/verde_menta">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/verde_menta"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_respuestas"
+                            app:tint="@color/azul_noche" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_respuestas" />
+
+                        <TextView
+                            android:id="@+id/txtTileRespuestas"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_respuestas" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileEstadisticas"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/verde_menta">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/verde_menta"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_estadisticas"
+                            app:tint="@color/azul_noche" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_estadisticas" />
+
+                        <TextView
+                            android:id="@+id/txtTileEstadisticas"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_estadisticas_desc" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileConfig"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/verde_azulado">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/verde_azulado"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_config"
+                            app:tint="@color/blanco" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_config" />
+
+                        <TextView
+                            android:id="@+id/txtTileConfig"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_config_desc" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+
+                <com.devcore.formio.componentes.TarjetaCuadrada
+                    android:id="@+id/tileVista"
+                    style="@style/TarjetaColor"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        style="@style/ContenidoCuadro"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/azul_noche">
+
+                        <ImageView
+                            style="@style/IconoTarjetaColor"
+                            android:backgroundTint="@color/azul_noche"
+                            android:contentDescription="@string/desc_icono"
+                            android:src="@drawable/ic_ojo"
+                            app:tint="@color/verde_menta" />
+
+                        <TextView
+                            style="@style/TituloTarjetaColor"
+                            android:text="@string/tile_vista" />
+
+                        <TextView
+                            android:id="@+id/txtTileVista"
+                            style="@style/TextoTarjetaColor"
+                            android:text="@string/tile_vista_desc" />
+                    </LinearLayout>
+                </com.devcore.formio.componentes.TarjetaCuadrada>
+            </LinearLayout>
+
+        <!-- Guarda la estructura como plantilla propia (Firestore) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarPlantilla"
+            style="@style/BotonContorno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/guardar_como_plantilla"
+            app:icon="@drawable/ic_plantillas" />
+
+        <!-- 2.3 Duplicar · 2.4 Archivar · 2.5 Eliminar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDuplicar"
+                style="@style/BotonTexto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/accion_duplicar"
+                app:icon="@drawable/ic_duplicar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnArchivar"
+                style="@style/BotonTexto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/accion_archivar"
+                app:icon="@drawable/ic_archivo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminar"
+                style="@style/BotonTexto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/accion_eliminar"
+                android:textColor="@color/azul_noche"
+                app:icon="@drawable/ic_borrar"
+                app:iconTint="@color/azul_noche" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

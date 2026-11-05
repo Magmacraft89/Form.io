@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aro decorativo que se asoma por la esquina de arriba a la derecha de una tarjeta.
+     El color se da con backgroundTint (así cada tarjeta lleva el aro de su color). -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="96dp" android:height="96dp" android:gravity="top|end"
+        android:top="-46dp" android:right="-38dp">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke android:width="12dp" android:color="@color/blanco" />
+        </shape>
+    </item>
+</layer-list>

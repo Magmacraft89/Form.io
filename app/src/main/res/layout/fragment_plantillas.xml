@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 3.4 PLANTILLAS BÁSICAS: galería de modelos preconfigurados -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/Cabecera">
+
+        <TextView
+            style="@style/CabeceraTitulo"
+            android:text="@string/plantillas_titulo" />
+
+        <TextView
+            style="@style/CabeceraTexto"
+            android:text="@string/plantillas_subtitulo" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlantillas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="10dp" />
+</LinearLayout>

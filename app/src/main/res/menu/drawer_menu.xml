@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opciones del menú lateral (Navigation Drawer) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/menu_dashboard" />
+        <item
+            android:id="@+id/nav_formularios"
+            android:icon="@drawable/ic_formularios"
+            android:title="@string/menu_formularios" />
+        <item
+            android:id="@+id/nav_nuevo"
+            android:icon="@drawable/ic_nuevo"
+            android:title="@string/menu_nuevo" />
+        <item
+            android:id="@+id/nav_plantillas"
+            android:icon="@drawable/ic_plantillas"
+            android:title="@string/menu_plantillas" />
+        <item
+            android:id="@+id/nav_archivados"
+            android:icon="@drawable/ic_archivo"
+            android:title="@string/menu_archivados" />
+    </group>
+
+    <item android:title="@string/menu_cuenta">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_perfil"
+                    android:icon="@drawable/ic_perfil"
+                    android:title="@string/menu_perfil" />
+                <item
+                    android:id="@+id/nav_salir"
+                    android:checkable="false"
+                    android:icon="@drawable/ic_salir"
+                    android:title="@string/menu_salir" />
+            </group>
+        </menu>
+    </item>
+</menu>

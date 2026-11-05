@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Título de sección dentro de la ficha de una respuesta -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TituloSeccion"
+    android:layout_marginStart="2dp"
+    android:layout_marginTop="8dp" />

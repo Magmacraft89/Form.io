@@ -1,7 +1,38 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Formio" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Igual que el tema normal: la app siempre se ve clara -->
+    <style name="Base.Theme.FormIO" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/verde_azulado</item>
+        <item name="colorOnPrimary">@color/blanco</item>
+        <item name="colorPrimaryContainer">@color/verde_menta</item>
+        <item name="colorOnPrimaryContainer">@color/azul_noche</item>
+        <item name="colorSecondary">@color/verde_menta</item>
+        <item name="colorOnSecondary">@color/azul_noche</item>
+        <item name="colorSecondaryContainer">@color/verde_menta</item>
+        <item name="colorOnSecondaryContainer">@color/azul_noche</item>
+        <item name="colorTertiary">@color/azul_noche</item>
+        <item name="colorOnTertiary">@color/blanco</item>
+        <item name="colorSurface">@color/blanco</item>
+        <item name="colorOnSurface">@color/azul_noche</item>
+        <item name="colorOnSurfaceVariant">@color/verde_azulado</item>
+        <item name="colorSurfaceVariant">@color/blanco</item>
+        <item name="colorSurfaceContainerLowest">@color/blanco</item>
+        <item name="colorSurfaceContainerLow">@color/blanco</item>
+        <item name="colorSurfaceContainer">@color/blanco</item>
+        <item name="colorSurfaceContainerHigh">@color/blanco</item>
+        <item name="colorSurfaceContainerHighest">@color/blanco</item>
+        <item name="colorOutline">@color/verde_azulado</item>
+        <item name="colorOnBackground">@color/azul_noche</item>
+        <item name="android:colorBackground">@color/blanco</item>
+        <item name="android:textColorPrimary">@color/azul_noche</item>
+        <item name="android:textColorSecondary">@color/verde_azulado</item>
+        <item name="materialSwitchStyle">@style/Interruptor</item>
+        <item name="textInputStyle">@style/CampoTexto</item>
+    </style>
+
+    <style name="Theme.FormIO" parent="Base.Theme.FormIO" />
+
+    <!-- Pantalla completa del QR: fondo azul noche -->
+    <style name="Theme.FormIO.PantallaCompleta" parent="Base.Theme.FormIO">
+        <item name="android:windowBackground">@color/azul_noche</item>
     </style>
 </resources>

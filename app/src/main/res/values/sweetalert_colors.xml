@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores de SweetAlert adaptados a la paleta de Form.io.
+     (Tienen el mismo nombre que en la librería, así la app los reemplaza.
+      Todos apuntan a los 4 colores de la paleta.) -->
+<resources>
+    <color name="title_color">@color/azul_noche</color>
+    <color name="message_color">@color/verde_azulado</color>
+    <color name="text_color">@color/azul_noche</color>
+    <color name="success_stroke_color">@color/verde_menta</color>
+    <color name="trans_success_stroke_color">@color/verde_menta</color>
+    <color name="warning_stroke_color">@color/verde_azulado</color>
+    <color name="error_stroke_color">@color/azul_noche</color>
+    <color name="blue_btn_bg_color">@color/verde_azulado</color>
+    <color name="blue_btn_bg_pressed_color">@color/azul_noche</color>
+    <color name="red_btn_bg_color">@color/azul_noche</color>
+    <color name="red_btn_bg_pressed_color">@color/verde_azulado</color>
+    <color name="gray_btn_bg_color">@color/verde_azulado</color>
+    <color name="gray_btn_bg_pressed_color">@color/azul_noche</color>
+    <color name="sweet_dialog_bg_color">@color/blanco</color>
+    <color name="button_text_color">@color/blanco</color>
+</resources>

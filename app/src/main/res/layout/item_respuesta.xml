@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Una respuesta recibida: número, fecha y hora, y tiempo de llenado -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TarjetaBlanca"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/txtNumero"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/verde_menta"
+            android:gravity="center"
+            android:textColor="@color/azul_noche"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitulo"
+                    style="@style/TextoTitulo"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtNueva"
+                    style="@style/Etiqueta"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/verde_menta"
+                    android:text="@string/en_vivo"
+                    android:textColor="@color/azul_noche"
+                    android:textSize="9sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtFecha"
+                style="@style/TextoSecundario"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtDuracion"
+            style="@style/Etiqueta"
+            android:backgroundTint="@color/azul_noche"
+            android:drawableStart="@drawable/ic_reloj_p"
+            android:drawablePadding="4dp"
+            android:drawableTint="@color/verde_menta"
+            android:gravity="center_vertical"
+            android:textColor="@color/blanco"
+            android:textSize="12sp" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fondo de los chips de filtro: menta si está elegido, blanco si no -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/verde_menta" android:state_checked="true" />
+    <item android:color="@color/blanco" />
+</selector>

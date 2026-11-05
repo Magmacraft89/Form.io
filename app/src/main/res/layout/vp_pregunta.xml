@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Una pregunta en el formulario del participante -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardPregunta"
+    style="@style/TarjetaBlanca"
+    android:layout_marginBottom="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/verde_azulado">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtPregunta"
+            style="@style/TextoTitulo"
+            android:layout_width="match_parent"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/contenedorEntrada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/txtError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/ic_alerta_p"
+            android:drawablePadding="4dp"
+            android:drawableTint="@color/verde_azulado"
+            android:gravity="center_vertical"
+            android:text="@string/vp_obligatoria"
+            android:textColor="@color/verde_azulado"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

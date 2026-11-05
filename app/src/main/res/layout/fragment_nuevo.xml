@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2.1 CREAR: título y descripción del nuevo formulario -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            style="@style/Cabecera"
+            android:paddingBottom="64dp">
+
+            <TextView
+                style="@style/CabeceraTitulo"
+                android:text="@string/nuevo_titulo" />
+
+            <TextView
+                style="@style/CabeceraTexto"
+                android:text="@string/nuevo_subtitulo" />
+        </LinearLayout>
+
+        <!-- Tarjeta con los datos básicos (se monta sobre la banda) -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-44dp"
+            android:layout_marginEnd="16dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circulo"
+                    android:backgroundTint="@color/verde_menta"
+                    android:contentDescription="@string/desc_icono"
+                    android:padding="13dp"
+                    android:src="@drawable/ic_nuevo"
+                    app:tint="@color/azul_noche" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTitulo"
+                    style="@style/CampoTextoEstilo"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/campo_titulo_form"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="80">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:maxLength="80"
+                        android:maxLines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescripcion"
+                    style="@style/CampoTextoEstilo"
+                    android:hint="@string/campo_descripcion_form">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnComenzar"
+                    style="@style/BotonPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/btn_comenzar"
+                    app:icon="@drawable/ic_flecha_der"
+                    app:iconGravity="end" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Acceso a plantillas -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPlantillas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/azul_noche"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/deco_aro"
+                android:backgroundTint="@color/verde_menta"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circulo"
+                    android:backgroundTint="@color/verde_menta"
+                    android:contentDescription="@string/desc_icono"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_plantillas"
+                    app:tint="@color/azul_noche" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nuevo_o_plantilla"
+                        android:textColor="@color/blanco"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nuevo_plantilla_texto"
+                        android:textColor="@color/blanco"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/desc_icono"
+                    android:src="@drawable/ic_flecha_der"
+                    app:tint="@color/verde_menta" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

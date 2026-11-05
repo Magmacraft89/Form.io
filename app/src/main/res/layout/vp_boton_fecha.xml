@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botón para elegir una fecha en el formulario del participante -->
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BotonContorno"
+    android:layout_width="match_parent"
+    android:text="@string/vp_elegir_fecha"
+    app:icon="@drawable/ic_fecha" />

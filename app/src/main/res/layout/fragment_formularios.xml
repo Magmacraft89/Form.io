@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2.9 LISTA CON ESTADO: todos los formularios con búsqueda y filtros
+     (también se usa para "Archivados", 2.4) -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/Cabecera">
+
+            <TextView
+                android:id="@+id/txtTituloLista"
+                style="@style/CabeceraTitulo"
+                android:text="@string/form_titulo_lista" />
+
+            <TextView
+                android:id="@+id/txtSubLista"
+                style="@style/CabeceraTexto"
+                android:text="@string/form_sub_lista" />
+
+            <!-- Barra de búsqueda -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/fondo_busqueda"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@string/desc_icono"
+                    android:src="@drawable/ic_buscar"
+                    app:tint="@color/verde_azulado" />
+
+                <EditText
+                    android:id="@+id/etBuscar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/buscar_formularios"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/azul_noche"
+                    android:textColorHint="@color/verde_azulado"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Filtros de estado -->
+            <HorizontalScrollView
+                android:id="@+id/scrollFiltros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/grupoFiltros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTodos"
+                        style="@style/ChipFiltro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/filtro_todos" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBorrador"
+                        style="@style/ChipFiltro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filtro_borrador" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipActivo"
+                        style="@style/ChipFiltro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filtro_activo" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCerrado"
+                        style="@style/ChipFiltro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filtro_cerrado" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtConteo"
+            style="@style/TextoSecundario"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFormularios"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="100dp" />
+
+            <!-- Lista vacía -->
+            <LinearLayout
+                android:id="@+id/layoutVacio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/circulo_anillo"
+                    android:contentDescription="@string/desc_icono"
+                    android:padding="32dp"
+                    android:src="@drawable/ic_formularios"
+                    app:tint="@color/verde_azulado" />
+
+                <TextView
+                    style="@style/TextoTitulo"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/sin_formularios"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtVacio"
+                    style="@style/TextoSecundario"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/sin_formularios_texto" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:text="@string/btn_nuevo"
+        android:textColor="@color/azul_noche"
+        app:backgroundTint="@color/verde_menta"
+        app:icon="@drawable/ic_agregar"
+        app:iconTint="@color/azul_noche" />
+</FrameLayout>

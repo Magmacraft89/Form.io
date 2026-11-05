@@ -1,3 +1,360 @@
 <resources>
     <string name="app_name">Form.io</string>
+    <string name="empresa">by DevCore</string>
+    <string name="eslogan">Crea formularios, compártelos con QR y mira los resultados en tiempo real.</string>
+
+    <!-- ===== Menú lateral ===== -->
+    <string name="drawer_abrir">Abrir menú</string>
+    <string name="drawer_cerrar">Cerrar menú</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_formularios">Mis formularios</string>
+    <string name="menu_nuevo">Nuevo formulario</string>
+    <string name="menu_plantillas">Plantillas</string>
+    <string name="menu_archivados">Archivados</string>
+    <string name="menu_cuenta">Cuenta</string>
+    <string name="menu_perfil">Mi perfil</string>
+    <string name="menu_salir">Cerrar sesión</string>
+
+    <!-- ===== 1. Autenticación ===== -->
+    <string name="login_titulo">Iniciar sesión</string>
+    <string name="login_subtitulo">Entra a tu panel de administrador</string>
+    <string name="campo_correo">Correo electrónico</string>
+    <string name="campo_correo_inst">Correo institucional o empresarial</string>
+    <string name="campo_contrasena">Contraseña</string>
+    <string name="campo_confirmar">Confirmar contraseña</string>
+    <string name="campo_nombre">Nombre completo</string>
+    <string name="campo_telefono">Teléfono</string>
+    <string name="campo_organizacion">Organización</string>
+    <string name="recordarme">Recordarme</string>
+    <string name="olvide_contrasena">¿Olvidaste tu contraseña?</string>
+    <string name="btn_iniciar">Iniciar sesión</string>
+    <string name="sin_cuenta">¿No tienes cuenta?</string>
+    <string name="registrate">Regístrate</string>
+    <string name="cuenta_prueba">Cuenta de prueba: admin@devcore.com · 123456</string>
+    <string name="registro_titulo">Crear cuenta</string>
+    <string name="registro_subtitulo">Regístrate como administrador para crear tus formularios</string>
+    <string name="btn_registrar">Crear mi cuenta</string>
+    <string name="con_cuenta">¿Ya tienes cuenta?</string>
+    <string name="inicia_sesion">Inicia sesión</string>
+    <string name="recuperar_titulo">Recuperar contraseña</string>
+    <string name="recuperar_texto">Escribe el correo con el que te registraste y te enviaremos un enlace para crear una contraseña nueva.</string>
+    <string name="btn_enviar_enlace">Enviar enlace de recuperación</string>
+    <string name="recuperar_enviado_titulo">¡Revisa tu correo!</string>
+    <string name="recuperar_enviado">Enviamos un enlace de recuperación a %1$s. Ábrelo para crear tu nueva contraseña.</string>
+    <string name="volver_login">Volver a iniciar sesión</string>
+    <string name="error_vacio">Este campo es obligatorio</string>
+    <string name="error_correo">Escribe un correo válido</string>
+    <string name="error_contrasena_corta">Mínimo 6 caracteres</string>
+    <string name="error_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="bienvenida">¡Bienvenido, %1$s!</string>
+
+    <!-- ===== 1.4 Perfil ===== -->
+    <string name="perfil_titulo">Mi perfil</string>
+    <string name="perfil_datos">Información personal</string>
+    <string name="perfil_foto">Foto de perfil</string>
+    <string name="perfil_cambiar_foto">Cambiar foto</string>
+    <string name="perfil_elegir_galeria">Elegir de la galería</string>
+    <string name="perfil_quitar_foto">Quitar foto</string>
+    <string name="perfil_rol">Administrador · %1$s</string>
+    <string name="perfil_seguridad">Cuenta y seguridad</string>
+    <string name="perfil_cambiar_contrasena">Cambiar contraseña</string>
+    <string name="perfil_cambiar_contrasena_desc">Actualiza tu contraseña de acceso</string>
+    <string name="perfil_salir_desc">Salir de tu cuenta en este teléfono</string>
+    <string name="perfil_version">Form.io 1.0 · Hecho por DevCore</string>
+    <string name="perfil_sin_dato">Sin agregar</string>
+    <string name="contrasena_actual">Contraseña actual</string>
+    <string name="contrasena_nueva">Nueva contraseña</string>
+    <string name="msg_contrasena_cambiada">Contraseña actualizada</string>
+    <string name="msg_foto_actualizada">Foto actualizada</string>
+    <string name="msg_foto_error">No se pudo cargar la foto</string>
+    <string name="msg_perfil_guardado">Perfil actualizado</string>
+    <string name="perfil_resumen_formularios">formularios</string>
+    <string name="perfil_resumen_respuestas">respuestas</string>
+    <string name="perfil_resumen_activos">activos</string>
+
+    <!-- ===== 7. Dashboard ===== -->
+    <string name="dash_saludo">¡Hola, %1$s! 👋</string>
+    <string name="dash_subtitulo">Esto es lo que está pasando hoy con tus formularios.</string>
+    <string name="dash_respuestas_hoy">Respuestas de hoy</string>
+    <string name="dash_vs_ayer_sube">▲ %1$d%% vs. ayer</string>
+    <string name="dash_vs_ayer_baja">▼ %1$d%% vs. ayer</string>
+    <string name="dash_vs_ayer_igual">Igual que ayer</string>
+    <string name="dash_activos">Activos</string>
+    <string name="dash_total">Respuestas</string>
+    <string name="dash_semana">Respuestas de la semana</string>
+    <string name="dash_por_vencer">Por vencer</string>
+    <string name="dash_sin_por_vencer">Ningún formulario está por vencer. 🎉</string>
+    <string name="dash_formularios_activos">Formularios activos</string>
+    <string name="ver_todos">Ver todos</string>
+    <string name="en_vivo">EN VIVO</string>
+    <string name="cierra_en">Cierra en %1$s</string>
+    <string name="de_limite">%1$d de %2$d respuestas</string>
+
+    <!-- ===== 2. Gestión de formularios ===== -->
+    <string name="form_titulo_lista">Mis formularios</string>
+    <string name="form_sub_lista">Crea, comparte y controla todos tus formularios.</string>
+    <string name="form_titulo_archivados">Archivados</string>
+    <string name="form_sub_archivados">Formularios fuera de uso. Puedes restaurarlos cuando quieras.</string>
+    <string name="buscar_formularios">Buscar formularios…</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_borrador">Borrador</string>
+    <string name="filtro_activo">Activo</string>
+    <string name="filtro_cerrado">Cerrado</string>
+    <string name="sin_formularios">No hay formularios aquí</string>
+    <string name="sin_formularios_texto">Toca \"Nuevo\" para crear tu primer formulario.</string>
+    <string name="sin_archivados_texto">Cuando archives un formulario aparecerá aquí.</string>
+    <string name="btn_nuevo">Nuevo</string>
+    <string name="accion_editar">Editar</string>
+    <string name="accion_duplicar">Duplicar</string>
+    <string name="accion_archivar">Archivar</string>
+    <string name="accion_restaurar">Restaurar</string>
+    <string name="accion_eliminar">Eliminar</string>
+    <string name="duplicar_titulo">Duplicar formulario</string>
+    <string name="duplicar_nombre">Nombre de la copia</string>
+    <string name="copia_de">Copia de %1$s</string>
+    <string name="msg_duplicado">Se creó \"%1$s\" como borrador</string>
+    <string name="msg_archivado">Formulario archivado</string>
+    <string name="msg_restaurado">Formulario restaurado</string>
+    <string name="eliminar_titulo">¿Eliminar formulario?</string>
+    <string name="eliminar_texto">Se borrará \"%1$s\" y sus %2$d respuestas. Esta acción no se puede deshacer.</string>
+    <string name="msg_eliminado">Formulario eliminado</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
+
+    <!-- 2.1 Crear -->
+    <string name="nuevo_titulo">Nuevo formulario</string>
+    <string name="nuevo_subtitulo">Empieza con lo básico: después agregas las preguntas.</string>
+    <string name="campo_titulo_form">Título del formulario</string>
+    <string name="campo_descripcion_form">Descripción o instrucciones</string>
+    <string name="btn_comenzar">Comenzar a crear</string>
+    <string name="nuevo_o_plantilla">¿Prefieres empezar más rápido?</string>
+    <string name="nuevo_plantilla_texto">Usa una plantilla con preguntas ya armadas.</string>
+
+    <!-- 3.4 Plantillas -->
+    <string name="plantillas_titulo">Plantillas</string>
+    <string name="plantillas_subtitulo">Estructuras listas para las encuestas más comunes.</string>
+    <string name="usar_plantilla">Usar esta plantilla</string>
+    <string name="usar_plantilla_corto">Usar</string>
+    <string name="vista_previa">Vista previa</string>
+
+    <!-- Detalle -->
+    <string name="detalle_titulo">Formulario</string>
+    <string name="detalle_opciones">Opciones</string>
+    <string name="recibiendo">Recibiendo respuestas</string>
+    <string name="no_recibiendo">No recibe respuestas</string>
+    <string name="metrica_respuestas">Respuestas</string>
+    <string name="metrica_visitas">Visitas</string>
+    <string name="metrica_tiempo">Tiempo prom.</string>
+    <string name="btn_publicar">Publicar formulario</string>
+    <string name="publicar_aviso">Este formulario es un borrador. Al publicarlo se genera su código QR y su enlace.</string>
+    <string name="msg_publicado">¡Publicado con éxito!</string>
+    <string name="tile_editar">Editar</string>
+    <string name="tile_editar_desc">Preguntas</string>
+    <string name="tile_qr">QR</string>
+    <string name="tile_qr_desc">Compartir</string>
+    <string name="tile_respuestas">Respuestas</string>
+    <string name="tile_respuestas_desc">%1$d recibidas</string>
+    <string name="tile_estadisticas">Estadísticas</string>
+    <string name="tile_estadisticas_desc">En tiempo real</string>
+    <string name="tile_config">Ajustes</string>
+    <string name="tile_config_desc">Fecha y límite</string>
+    <string name="tile_vista">Previa</string>
+    <string name="tile_vista_desc">Responder</string>
+    <string name="cerrado_por_fecha">Se cerró porque pasó su fecha límite</string>
+    <string name="cerrado_por_limite">Se cerró porque llegó a su límite de respuestas</string>
+    <string name="cerrado_manual">Lo cerraste manualmente</string>
+    <string name="creado_el">Creado el %1$s · %2$d preguntas</string>
+
+    <!-- 2.2 Editor + 3. Creador -->
+    <string name="editor_titulo">Editar formulario</string>
+    <string name="editor_guardado">Cambios guardados automáticamente</string>
+    <string name="editor_preguntas">Preguntas</string>
+    <string name="editor_vacio">Aún no hay preguntas. Toca \"Pregunta\" para agregar la primera.</string>
+    <string name="editor_mover">Mantén presionada una pregunta para cambiarla de lugar.</string>
+    <string name="btn_pregunta">Pregunta</string>
+    <string name="btn_seccion">Sección</string>
+    <string name="tipos_titulo">¿Qué tipo de pregunta quieres?</string>
+    <string name="dlg_nueva_pregunta">Nueva pregunta</string>
+    <string name="dlg_editar_pregunta">Editar pregunta</string>
+    <string name="dlg_nueva_seccion">Nueva sección</string>
+    <string name="dlg_editar_seccion">Editar sección</string>
+    <string name="campo_pregunta">Escribe la pregunta</string>
+    <string name="campo_titulo_seccion">Título de la sección</string>
+    <string name="campo_desc_seccion">Descripción (opcional)</string>
+    <string name="dlg_opciones">Opciones</string>
+    <string name="dlg_agregar_opcion">Agregar opción</string>
+    <string name="opcion_n">Opción %1$d</string>
+    <string name="dlg_escala">Escala</string>
+    <string name="escala_5">1 a 5</string>
+    <string name="escala_10">1 a 10</string>
+    <string name="dlg_obligatoria">Pregunta obligatoria</string>
+    <string name="error_pregunta_vacia">Escribe el texto de la pregunta</string>
+    <string name="error_opciones">Agrega al menos 2 opciones</string>
+    <string name="obligatoria">Obligatoria</string>
+    <string name="escala_de">Escala del 1 al %1$d</string>
+    <string name="respuesta_texto_corto">Respuesta corta</string>
+    <string name="respuesta_parrafo">Respuesta larga</string>
+    <string name="respuesta_fecha">Selector de fecha</string>
+    <string name="seccion_n">Sección</string>
+
+    <!-- 2.6 – 2.10 Configuración -->
+    <string name="config_titulo">Configuración</string>
+    <string name="config_abierto">Formulario abierto</string>
+    <string name="config_abierto_desc">Apágalo para dejar de recibir respuestas al instante.</string>
+    <string name="config_fecha">Fecha límite</string>
+    <string name="config_fecha_desc">Se cierra solo en la fecha y hora que elijas.</string>
+    <string name="config_elegir_fecha">Fecha</string>
+    <string name="config_elegir_hora">Hora</string>
+    <string name="config_limite">Límite de respuestas</string>
+    <string name="config_limite_desc">Se cierra al llegar a la cantidad máxima.</string>
+    <string name="config_capacidad">Capacidad máxima</string>
+    <string name="config_mensaje">Mensaje al cerrarse</string>
+    <string name="config_dispositivo">Una respuesta por dispositivo</string>
+    <string name="config_dispositivo_desc">Evita respuestas repetidas sin pedir datos personales.</string>
+    <string name="config_anonimo">Todas las respuestas son anónimas: la app no pide ni guarda datos personales de los participantes.</string>
+    <string name="msg_config_guardada">Configuración guardada</string>
+    <string name="error_capacidad">Escribe un número mayor a 0</string>
+
+    <!-- 4. QR y compartir -->
+    <string name="compartir_titulo_vista">QR y compartir</string>
+    <string name="publicado_exito">¡Publicado con éxito!</string>
+    <string name="qr_instruccion">Escanea con la cámara de tu teléfono</string>
+    <string name="btn_pantalla_completa">Pantalla completa</string>
+    <string name="btn_descargar">Descargar QR</string>
+    <string name="formato">Formato</string>
+    <string name="enlace_corto">Enlace corto</string>
+    <string name="btn_copiar">Copiar</string>
+    <string name="enviar_por">Enviar por</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="correo">Correo</string>
+    <string name="otras_apps">Otras apps</string>
+    <string name="compartir_titulo">Compartir formulario</string>
+    <string name="compartir_asunto">Encuesta: %1$s</string>
+    <string name="compartir_mensaje">¡Hola! 👋 Te invito a responder el formulario \"%1$s\". Es anónimo y toma pocos minutos: %2$s</string>
+    <string name="msg_enlace_copiado">Enlace copiado</string>
+    <string name="msg_sin_correo">No hay una app de correo instalada</string>
+    <string name="msg_qr_guardado">QR guardado en %1$s</string>
+    <string name="msg_qr_error">No se pudo guardar el QR</string>
+    <string name="qr_borrador">Publica el formulario para generar su código QR.</string>
+    <string name="qr_cerrado_aviso">El formulario está cerrado: quien escanee verá el mensaje de cierre.</string>
+    <string name="cerrar">Cerrar</string>
+
+    <!-- 5. Respuestas -->
+    <string name="respuestas_titulo">Respuestas</string>
+    <string name="respuestas_sub">Se actualizan en tiempo real. Todas son anónimas.</string>
+    <string name="respuesta_n">Respuesta #%1$d</string>
+    <string name="sin_respuestas">Todavía no hay respuestas</string>
+    <string name="sin_respuestas_texto">Comparte el código QR para empezar a recibirlas.</string>
+    <string name="anterior">Anterior</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="sin_contestar">Sin contestar</string>
+    <string name="tardo">Tardó %1$s</string>
+    <string name="de_total">%1$d de %2$d</string>
+
+    <!-- 6. Estadísticas -->
+    <string name="estadisticas_titulo">Estadísticas</string>
+    <string name="est_total">Total de respuestas</string>
+    <string name="est_hoy">%1$d hoy</string>
+    <string name="est_tiempo">Tiempo promedio</string>
+    <string name="est_tiempo_rango">Más rápido %1$s · más lento %2$s</string>
+    <string name="est_abandono">Tasa de abandono</string>
+    <string name="est_visitas_vs">%1$d visitas · %2$d enviadas</string>
+    <string name="est_por_dia">Respuestas por día</string>
+    <string name="est_por_pregunta">Gráficas por pregunta</string>
+    <string name="est_promedio">Promedio %1$s de %2$d</string>
+    <string name="est_contestaron">%1$d de %2$d contestaron</string>
+    <string name="est_sin_datos">Las gráficas aparecen cuando llegue la primera respuesta.</string>
+    <string name="est_mas">… y %1$d más</string>
+
+    <!-- 5.3 Vista previa (formulario web del participante) -->
+    <string name="vp_titulo">Vista previa</string>
+    <string name="vp_aviso_borrador">Vista previa de un borrador: lo que envíes aquí no se guardará.</string>
+    <string name="vp_anonimo">🔒 Tus respuestas son anónimas</string>
+    <string name="vp_seccion_de">Sección %1$d de %2$d</string>
+    <string name="vp_enviar">Enviar</string>
+    <string name="vp_obligatoria">Esta pregunta es obligatoria</string>
+    <string name="vp_tu_respuesta">Tu respuesta</string>
+    <string name="vp_elegir_fecha">Elegir fecha</string>
+    <string name="vp_gracias">¡Gracias!</string>
+    <string name="vp_gracias_texto">Tu respuesta fue enviada correctamente.</string>
+    <string name="vp_otra">Enviar otra respuesta</string>
+    <string name="vp_volver">Volver al formulario</string>
+    <string name="vp_cerrado">Formulario cerrado</string>
+    <string name="vp_ya_respondiste">Ya respondiste este formulario</string>
+    <string name="vp_ya_respondiste_texto">Este formulario solo permite una respuesta por dispositivo. ¡Gracias por participar!</string>
+    <string name="vp_hecho_con">Hecho con Form.io</string>
+    <string name="vp_pie">Así lo verá quien escanee el QR (página web)</string>
+
+    <!-- Descripciones de accesibilidad -->
+    <string name="desc_logo">Logo de Form.io</string>
+    <string name="desc_icono">Ícono</string>
+    <string name="desc_opciones">Más opciones</string>
+    <string name="desc_qr">Código QR del formulario</string>
+    <string name="desc_quitar">Quitar</string>
+    <string name="desc_mover">Mover</string>
+    <string name="desc_cerrar">Cerrar</string>
+
+    <!-- Plurales -->
+    <plurals name="n_respuestas">
+        <item quantity="one">%d respuesta</item>
+        <item quantity="other">%d respuestas</item>
+    </plurals>
+    <plurals name="n_preguntas">
+        <item quantity="one">%d pregunta</item>
+        <item quantity="other">%d preguntas</item>
+    </plurals>
+    <plurals name="n_formularios">
+        <item quantity="one">%d formulario</item>
+        <item quantity="other">%d formularios</item>
+    </plurals>
+    <!-- ===== Alertas (SweetAlert) y Firebase ===== -->
+    <string name="aceptar">Aceptar</string>
+    <string name="cargar">Cargar</string>
+    <string name="quitar">Quitar</string>
+    <string name="salir">Salir</string>
+    <string name="publicar">Publicar</string>
+    <string name="algo_salio_mal">Algo salió mal</string>
+    <string name="guardando">Guardando…</string>
+    <string name="enviando">Enviando…</string>
+    <string name="eliminando">Eliminando…</string>
+    <string name="publicando">Publicando…</string>
+    <string name="iniciando_sesion">Iniciando sesión…</string>
+    <string name="creando_cuenta">Creando tu cuenta…</string>
+    <string name="cuenta_creada">¡Cuenta creada!</string>
+    <string name="no_se_pudo_entrar">No se pudo iniciar sesión</string>
+    <string name="no_se_pudo_registrar">No se pudo crear la cuenta</string>
+    <string name="no_se_pudo_enviar">No se pudo enviar</string>
+    <string name="cerrar_sesion_titulo">¿Cerrar sesión?</string>
+    <string name="cerrar_sesion_mensaje">Tendrás que ingresar tu correo y contraseña para volver a entrar.</string>
+    <string name="perfil_correo_fijo">El correo es tu cuenta de acceso y no se puede cambiar</string>
+    <string name="perfil_quitar_foto_msg">Se mostrarán tus iniciales en lugar de la foto.</string>
+    <string name="msg_foto_quitada">Foto eliminada</string>
+    <string name="duplicado_titulo">¡Formulario duplicado!</string>
+    <string name="publicar_titulo">¿Publicar formulario?</string>
+    <string name="publicar_texto">Se generará su código QR y enlace, y cualquier persona con ellos podrá responder.</string>
+    <string name="publicado_texto">Ya puedes compartir su código QR y enlace.</string>
+    <string name="publicar_sin_preguntas_titulo">Formulario vacío</string>
+    <string name="publicar_sin_preguntas">Agrega al menos una pregunta antes de publicar.</string>
+    <string name="eliminar_pregunta_titulo">¿Eliminar esta pregunta?</string>
+    <string name="eliminar_seccion_titulo">¿Eliminar esta sección?</string>
+    <string name="respuesta_enviada">¡Respuesta enviada!</string>
+    <string name="guardar_como_plantilla">Guardar como plantilla</string>
+    <string name="plantilla_nombre">Nombre de la plantilla</string>
+    <string name="plantilla_propia">Mía</string>
+    <string name="plantilla_guardada">¡Plantilla guardada!</string>
+    <string name="plantilla_guardada_msg">\"%1$s\" ya aparece en Plantillas para que la reutilices.</string>
+    <string name="plantilla_sin_preguntas_titulo">Sin preguntas</string>
+    <string name="plantilla_sin_preguntas">Agrega preguntas al formulario antes de guardarlo como plantilla.</string>
+    <string name="plantilla_eliminada">Plantilla eliminada</string>
+    <string name="eliminar_plantilla_titulo">¿Eliminar plantilla?</string>
+    <string name="eliminar_plantilla_texto">Se borrará la plantilla \"%1$s\". Los formularios creados con ella no cambian.</string>
+    <string name="dash_empezar_titulo">¡Empecemos!</string>
+    <string name="dash_empezar_texto">Aún no tienes formularios. Crea el primero o carga unos de ejemplo para ver cómo funcionan las estadísticas.</string>
+    <string name="dash_empezar_crear">Crear mi primer formulario</string>
+    <string name="dash_cargar_ejemplos">Cargar ejemplos</string>
+    <string name="ejemplos_titulo">¿Cargar ejemplos?</string>
+    <string name="ejemplos_texto">Se crearán 6 formularios con respuestas de prueba en tu cuenta. Puedes eliminarlos cuando quieras.</string>
+    <string name="cargando_ejemplos">Cargando ejemplos…</string>
+    <string name="ejemplos_listos">¡Ejemplos listos!</string>
+    <string name="ejemplos_listos_texto">Explora el Dashboard, las respuestas y las estadísticas.</string>
 </resources>

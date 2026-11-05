@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Color de las opciones del menú lateral: azul noche si está marcada, verde azulado si no -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/azul_noche" android:state_checked="true" />
+    <item android:color="@color/verde_azulado" />
+</selector>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 6. ESTADÍSTICAS POR FORMULARIO
+     6.1 Total · 6.2 Gráficas por pregunta · 6.3 Respuestas por día
+     6.4 Tiempo promedio de llenado · 6.5 Tasa de abandono -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            style="@style/Cabecera"
+            android:paddingBottom="72dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/CabeceraTitulo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/estadisticas_titulo" />
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:backgroundTint="@color/verde_menta"
+                    android:text="@string/en_vivo"
+                    android:textColor="@color/azul_noche" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtFormTitulo"
+                style="@style/CabeceraTexto" />
+        </LinearLayout>
+
+        <!-- 6.1 Total de respuestas -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-52dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/verde_menta"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/deco_aro"
+                    android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circulo"
+                    android:backgroundTint="@color/azul_noche"
+                    android:contentDescription="@string/desc_icono"
+                    android:padding="13dp"
+                    android:src="@drawable/ic_respuestas"
+                    app:tint="@color/verde_menta" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/est_total"
+                        android:textColor="@color/azul_noche"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/azul_noche"
+                        android:textSize="40sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtHoy"
+                        style="@style/Etiqueta"
+                        android:backgroundTint="@color/azul_noche"
+                        android:textColor="@color/verde_menta" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6.4 Tiempo promedio · 6.5 Tasa de abandono -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <com.google.android.material.card.MaterialCardView style="@style/TarjetaColor">
+
+                <LinearLayout
+                        style="@style/ContenidoTarjetaColor"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/verde_azulado">
+
+                    <ImageView
+                        style="@style/IconoTarjetaColor"
+                        android:backgroundTint="@color/verde_azulado"
+                        android:contentDescription="@string/desc_icono"
+                        android:src="@drawable/ic_reloj"
+                        app:tint="@color/blanco" />
+
+                    <TextView
+                        style="@style/TextoTarjetaColor"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/est_tiempo" />
+
+                    <TextView
+                        android:id="@+id/txtTiempo"
+                        style="@style/TituloTarjetaColor"
+                        android:layout_marginTop="0dp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txtTiempoRango"
+                        style="@style/TextoTarjetaColor"
+                        android:maxLines="2"
+                        android:gravity="start"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView style="@style/TarjetaColor">
+
+                <LinearLayout
+                        style="@style/ContenidoTarjetaColor"
+                        android:background="@drawable/deco_aro"
+                        android:backgroundTint="@color/azul_noche">
+
+                    <ImageView
+                        style="@style/IconoTarjetaColor"
+                        android:backgroundTint="@color/azul_noche"
+                        android:contentDescription="@string/desc_icono"
+                        android:src="@drawable/ic_salir"
+                        app:tint="@color/verde_menta" />
+
+                    <TextView
+                        style="@style/TextoTarjetaColor"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/est_abandono" />
+
+                    <TextView
+                        android:id="@+id/txtAbandono"
+                        style="@style/TituloTarjetaColor"
+                        android:layout_marginTop="0dp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txtVisitas"
+                        style="@style/TextoTarjetaColor"
+                        android:gravity="start"
+                        android:textSize="11sp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progresoCompletadas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        app:indicatorColor="@color/verde_azulado"
+                        app:trackColor="@color/verde_menta"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="6dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- 6.3 Respuestas por día -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/est_por_dia" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <com.devcore.formio.graficas.GraficaLinea
+                android:id="@+id/graficaDias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6.2 Gráficas por pregunta -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/est_por_pregunta" />
+
+        <TextView
+            android:id="@+id/txtSinDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/fondo_borde"
+            android:padding="16dp"
+            android:text="@string/est_sin_datos"
+            android:textColor="@color/verde_azulado"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/contenedorPreguntas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

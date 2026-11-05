@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CONFIGURACIÓN DEL FORMULARIO
+     2.6 Abrir y cerrar · 2.7 Fecha límite · 2.8 Límite de respuestas · 2.10 Una respuesta por dispositivo -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            style="@style/Cabecera"
+            android:paddingBottom="56dp">
+
+            <TextView
+                style="@style/CabeceraTitulo"
+                android:text="@string/config_titulo" />
+
+            <TextView
+                android:id="@+id/txtFormTitulo"
+                style="@style/CabeceraTexto" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="-36dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout style="@style/FilaAjuste">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_menta"
+                        android:contentDescription="@string/desc_icono"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_rayo"
+                        app:tint="@color/azul_noche" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextoTitulo"
+                            android:text="@string/config_abierto"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:text="@string/config_abierto_desc"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swAbierto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout style="@style/FilaAjuste">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_azulado"
+                        android:contentDescription="@string/desc_icono"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_calendario"
+                        app:tint="@color/blanco" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextoTitulo"
+                            android:text="@string/config_fecha"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:text="@string/config_fecha_desc"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swFecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFecha"
+                            style="@style/BotonContorno"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.3"
+                            android:text="@string/config_elegir_fecha"
+                            app:icon="@drawable/ic_calendario" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnHora"
+                            style="@style/BotonContorno"
+                            android:layout_width="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/config_elegir_hora"
+                            app:icon="@drawable/ic_reloj" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtVence"
+                        style="@style/Etiqueta"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/verde_menta"
+                        android:textColor="@color/azul_noche" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout style="@style/FilaAjuste">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/azul_noche"
+                        android:contentDescription="@string/desc_icono"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_usuarios"
+                        app:tint="@color/blanco" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextoTitulo"
+                            android:text="@string/config_limite"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:text="@string/config_limite_desc"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swLimite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutLimite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCapacidad"
+                        style="@style/CampoTextoEstilo"
+                        android:hint="@string/config_capacidad">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCapacidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="5" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilMensaje"
+                        style="@style/CampoTextoEstilo"
+                        android:hint="@string/config_mensaje">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMensaje"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences|textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout style="@style/FilaAjuste">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_menta"
+                        android:contentDescription="@string/desc_icono"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_candado"
+                        app:tint="@color/azul_noche" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextoTitulo"
+                            android:text="@string/config_dispositivo"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:text="@string/config_dispositivo_desc"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swDispositivo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/fondo_borde"
+            android:drawableStart="@drawable/ic_ojo_cerrado_p"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/verde_azulado"
+            android:gravity="center_vertical"
+            android:padding="14dp"
+            android:text="@string/config_anonimo"
+            android:textColor="@color/azul_noche"
+            android:textSize="13sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardar"
+            style="@style/BotonPrincipal"
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/guardar"
+            app:icon="@drawable/ic_check" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

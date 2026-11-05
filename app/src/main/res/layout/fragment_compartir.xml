@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 4. QR Y COMPARTIR
+     4.1 QR generado al publicar · 4.2 Pantalla completa · 4.3 Descargar
+     4.4 Enlace corto · 4.5 Enviar por WhatsApp o correo -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="28dp">
+
+        <LinearLayout
+            style="@style/Cabecera"
+            android:paddingBottom="110dp">
+
+            <TextView
+                android:id="@+id/txtPublicado"
+                style="@style/Etiqueta"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/verde_menta"
+                android:drawableStart="@drawable/ic_check_p"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/azul_noche"
+                android:gravity="center_vertical"
+                android:text="@string/publicado_exito"
+                android:textColor="@color/azul_noche"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/CabeceraTitulo"
+                android:text="@string/compartir_titulo_vista" />
+
+            <TextView
+                android:id="@+id/txtFormTitulo"
+                style="@style/CabeceraTexto" />
+        </LinearLayout>
+
+        <!-- Tarjeta del código QR -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/TarjetaBlanca"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-96dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <FrameLayout
+                    android:id="@+id/marcoQr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fondo_qr"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgQr"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"
+                        android:contentDescription="@string/desc_qr" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtInstruccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/ic_qr_p"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="@color/verde_azulado"
+                    android:gravity="center_vertical"
+                    android:text="@string/qr_instruccion"
+                    android:textColor="@color/verde_azulado"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtAviso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fondo_redondeado"
+                    android:backgroundTint="@color/azul_noche"
+                    android:padding="12dp"
+                    android:textColor="@color/blanco"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/layoutAccionesQr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPantallaCompleta"
+                            style="@style/BotonPrincipal"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_pantalla_completa"
+                            android:textSize="13sp"
+                            app:icon="@drawable/ic_pantalla_completa" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDescargar"
+                            style="@style/BotonContorno"
+                            android:layout_width="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_descargar"
+                            android:textSize="13sp"
+                            app:icon="@drawable/ic_descargar" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical|end"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/formato"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/grupoFormato"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:selectionRequired="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipPng"
+                                style="@style/ChipFiltro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="PNG"
+                                app:chipStrokeColor="@color/verde_azulado"
+                                app:chipStrokeWidth="1dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipJpg"
+                                style="@style/ChipFiltro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="JPG"
+                                app:chipStrokeColor="@color/verde_azulado"
+                                app:chipStrokeWidth="1dp" />
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/layoutCompartir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 4.4 Enlace corto -->
+            <TextView
+                style="@style/TituloSeccion"
+                android:text="@string/enlace_corto" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/fondo_borde_menta"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:id="@+id/txtEnlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/azul_noche"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopiar"
+                    style="@style/BotonMenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/btn_copiar"
+                    android:textSize="13sp"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/ic_copiar" />
+            </LinearLayout>
+
+            <!-- 4.5 Enviar por -->
+            <TextView
+                style="@style/TituloSeccion"
+                android:text="@string/enviar_por" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <LinearLayout
+                    android:id="@+id/btnWhatsApp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_menta"
+                        android:contentDescription="@string/desc_icono"
+                        android:elevation="3dp"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_chat"
+                        app:tint="@color/azul_noche" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/whatsapp"
+                        android:textColor="@color/azul_noche"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnCorreo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/verde_azulado"
+                        android:contentDescription="@string/desc_icono"
+                        android:elevation="3dp"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_correo"
+                        app:tint="@color/blanco" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/correo"
+                        android:textColor="@color/azul_noche"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnOtros"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="@drawable/circulo"
+                        android:backgroundTint="@color/azul_noche"
+                        android:contentDescription="@string/desc_icono"
+                        android:elevation="3dp"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_compartir"
+                        app:tint="@color/blanco" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/otras_apps"
+                        android:textColor="@color/azul_noche"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

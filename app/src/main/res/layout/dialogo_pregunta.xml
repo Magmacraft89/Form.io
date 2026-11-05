@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Diálogo para crear o editar una pregunta (3.1 tipos, 3.2 obligatoria) o una sección (3.3) -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="8dp">
+
+        <!-- Tipo de pregunta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgTipo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circulo"
+                android:backgroundTint="@color/verde_menta"
+                android:contentDescription="@string/desc_icono"
+                android:padding="10dp"
+                app:tint="@color/azul_noche" />
+
+            <TextView
+                android:id="@+id/txtTipo"
+                style="@style/TextoTitulo"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTexto"
+            style="@style/CampoTextoEstilo"
+            android:layout_marginTop="16dp"
+            android:hint="@string/campo_pregunta">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences|textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Solo secciones -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDescripcion"
+            style="@style/CampoTextoEstilo"
+            android:hint="@string/campo_desc_seccion"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences|textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Opción múltiple y casillas -->
+        <LinearLayout
+            android:id="@+id/layoutOpciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/TextoTitulo"
+                android:text="@string/dlg_opciones"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/contenedorOpciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/txtErrorOpciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_opciones"
+                android:textColor="?attr/colorError"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAgregarOpcion"
+                style="@style/BotonTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dlg_agregar_opcion"
+                app:icon="@drawable/ic_agregar" />
+        </LinearLayout>
+
+        <!-- Escala -->
+        <LinearLayout
+            android:id="@+id/layoutEscala"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/TextoTitulo"
+                android:text="@string/dlg_escala"
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@+id/grupoEscala"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbEscala5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/verde_azulado"
+                    android:checked="true"
+                    android:text="@string/escala_5"
+                    android:textColor="@color/azul_noche" />
+
+                <RadioButton
+                    android:id="@+id/rbEscala10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/verde_azulado"
+                    android:text="@string/escala_10"
+                    android:textColor="@color/azul_noche" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- 3.2 Obligatoria -->
+        <LinearLayout
+            android:id="@+id/filaObligatoria"
+            style="@style/FilaAjuste"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/TextoTitulo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/dlg_obligatoria"
+                android:textSize="14sp" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swObligatoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

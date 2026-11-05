@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0C2B3B">
+<title>Form.io · Responder</title>
+<link rel="icon" href="/logo.png">
+<style>
+  :root {
+    --azul-noche: #0C2B3B;
+    --verde-azulado: #00827E;
+    --verde-menta: #2ED891;
+    --blanco: #FFFFFF;
+    --borde: rgba(12, 43, 59, .12);
+    --suave: rgba(12, 43, 59, .6);
+    --fondo-campo: rgba(0, 130, 126, .06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--blanco);
+    color: var(--azul-noche);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  /* ---------- Cabecera con aros ---------- */
+  .cabecera {
+    position: relative;
+    overflow: hidden;
+    background: var(--azul-noche);
+    color: var(--blanco);
+    padding: 22px 20px 34px;
+    border-radius: 0 0 28px 28px;
+  }
+  .cabecera::before {            /* círculo verde azulado */
+    content: ""; position: absolute; width: 170px; height: 170px; border-radius: 50%;
+    background: var(--verde-azulado); top: -60px; right: -90px;
+  }
+  .cabecera::after {             /* aro menta */
+    content: ""; position: absolute; width: 60px; height: 60px; border-radius: 50%;
+    border: 5px solid var(--verde-menta); top: 36px; right: 100px;
+  }
+  .aro-izq {
+    position: absolute; width: 56px; height: 56px; border-radius: 50%;
+    background: var(--verde-menta); top: -18px; left: -28px;
+  }
+  .cabecera > * { position: relative; z-index: 1; }
+  .marca { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
+  .marca img { width: 34px; height: 34px; border-radius: 9px; }
+  .marca span { color: var(--verde-menta); }
+  .cabecera h1 { margin: 26px 0 6px; font-size: 24px; line-height: 1.2; max-width: 640px; }
+  .cabecera p { margin: 0; color: rgba(255, 255, 255, .78); max-width: 640px; white-space: pre-line; }
+
+  main { max-width: 680px; margin: 0 auto; padding: 18px 16px 40px; }
+
+  /* ---------- Progreso ---------- */
+  .progreso { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; font-size: 13px; color: var(--suave); }
+  .barra { flex: 1; height: 6px; background: var(--fondo-campo); border-radius: 99px; overflow: hidden; }
+  .barra i { display: block; height: 100%; width: 0; background: var(--verde-azulado); border-radius: 99px; transition: width .3s; }
+
+  /* ---------- Tarjetas ---------- */
+  .seccion {
+    position: relative; overflow: hidden;
+    background: var(--azul-noche); color: var(--blanco);
+    border-radius: 18px; padding: 18px; margin-bottom: 14px;
+  }
+  .seccion::after {
+    content: ""; position: absolute; width: 110px; height: 110px; border-radius: 50%;
+    border: 14px solid var(--verde-menta); opacity: .9; top: -40px; right: -50px;
+  }
+  .seccion h2 { margin: 0; font-size: 18px; position: relative; z-index: 1; padding-right: 50px; }
+  .seccion p { margin: 6px 0 0; color: rgba(255, 255, 255, .78); position: relative; z-index: 1; }
+
+  .pregunta {
+    border: 1px solid var(--borde); border-radius: 18px;
+    padding: 18px; margin-bottom: 14px; background: var(--blanco);
+    transition: border-color .2s;
+  }
+  .pregunta.falta { border-color: var(--verde-azulado); box-shadow: 0 0 0 2px rgba(0, 130, 126, .18); }
+  .pregunta h3 { margin: 0; font-size: 16px; font-weight: 600; }
+  .pregunta h3 .req { color: var(--verde-azulado); }
+  .pregunta .desc { margin: 4px 0 0; font-size: 14px; color: var(--suave); }
+  .pregunta .error { display: none; margin-top: 10px; font-size: 13px; color: var(--verde-azulado); font-weight: 600; }
+  .pregunta.falta .error { display: block; }
+  .campo { margin-top: 12px; }
+
+  input[type=text], input[type=date], textarea {
+    width: 100%; font: inherit; color: var(--azul-noche);
+    background: var(--fondo-campo); border: 1px solid transparent;
+    border-radius: 12px; padding: 12px 14px; outline: none;
+  }
+  input:focus, textarea:focus { border-color: var(--verde-azulado); background: var(--blanco); }
+  textarea { min-height: 96px; resize: vertical; }
+
+  .opcion {
+    display: flex; align-items: center; gap: 12px; cursor: pointer;
+    padding: 11px 12px; border-radius: 12px; border: 1px solid var(--borde); margin-top: 8px;
+  }
+  .opcion:has(input:checked) { border-color: var(--verde-azulado); background: var(--fondo-campo); }
+  .opcion input { accent-color: var(--verde-azulado); width: 18px; height: 18px; margin: 0; }
+
+  .escala { display: flex; flex-wrap: wrap; gap: 8px; }
+  .escala button {
+    flex: 1 0 40px; min-width: 40px; height: 44px; font: inherit; font-weight: 600;
+    color: var(--azul-noche); background: var(--blanco);
+    border: 1px solid var(--borde); border-radius: 12px; cursor: pointer;
+  }
+  .escala button.sel { background: var(--verde-azulado); border-color: var(--verde-azulado); color: var(--blanco); }
+  .escala-etq { display: flex; justify-content: space-between; font-size: 12px; color: var(--suave); margin-top: 6px; }
+
+  /* ---------- Botones ---------- */
+  .acciones { display: flex; gap: 10px; margin-top: 6px; }
+  .btn {
+    flex: 1; height: 50px; font: inherit; font-weight: 700; border-radius: 14px; cursor: pointer;
+    border: none; background: var(--verde-azulado); color: var(--blanco);
+  }
+  .btn.sec { background: var(--blanco); color: var(--azul-noche); border: 1px solid var(--borde); flex: 0 0 34%; }
+  .btn:disabled { opacity: .55; cursor: default; }
+
+  /* ---------- Estados (cargando, gracias, cerrado) ---------- */
+  .estado { text-align: center; padding: 48px 10px; }
+  .estado .icono {
+    width: 84px; height: 84px; margin: 0 auto 18px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--verde-menta); color: var(--azul-noche);
+  }
+  .estado .icono.oscuro { background: var(--azul-noche); color: var(--verde-menta); }
+  .estado h2 { margin: 0 0 8px; font-size: 22px; }
+  .estado p { margin: 0 auto; max-width: 420px; color: var(--suave); white-space: pre-line; }
+  .giro {
+    width: 42px; height: 42px; margin: 0 auto 16px; border-radius: 50%;
+    border: 4px solid var(--fondo-campo); border-top-color: var(--verde-azulado);
+    animation: girar .9s linear infinite;
+  }
+  @keyframes girar { to { transform: rotate(360deg); } }
+
+  footer { text-align: center; font-size: 12px; color: var(--suave); padding: 0 16px 28px; }
+  footer b { color: var(--verde-azulado); }
+  .oculto { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="aro-izq"></div>
+  <div class="marca"><img src="/logo.png" alt=""><b>Form<span>.io</span></b></div>
+  <h1 id="titulo">Cargando formulario…</h1>
+  <p id="descripcion"></p>
+</header>
+
+<main>
+  <!-- Estado: cargando / cerrado / gracias / error -->
+  <div id="estado" class="estado">
+    <div class="giro"></div>
+    <p>Un momento…</p>
+  </div>
+
+  <!-- Formulario -->
+  <form id="formulario" class="oculto" novalidate>
+    <div class="progreso" id="progreso">
+      <span id="txtPagina">Página 1 de 1</span>
+      <div class="barra"><i id="barra"></i></div>
+    </div>
+    <div id="preguntas"></div>
+    <div class="acciones">
+      <button type="button" class="btn sec oculto" id="btnAtras">Atrás</button>
+      <button type="submit" class="btn" id="btnSiguiente">Enviar</button>
+    </div>
+  </form>
+</main>
+
+<footer>Respuesta anónima · Hecho con <b>Form.io</b> · DevCore</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/*
+ * PÁGINA PÚBLICA DE RESPUESTA (se abre al escanear el QR)
+ * Dirección: https://<proyecto>.web.app/f/<CODIGO>
+ *  - Lee el formulario de Firestore (formularios/<CODIGO>).
+ *  - Suma una visita (para la tasa de abandono).
+ *  - Guarda la respuesta anónima con una transacción y muestra "¡Gracias!".
+ */
+const $ = (id) => document.getElementById(id);
+const ICONOS = {
+  check: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  candado: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+  alerta: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>'
+};
+
+let db, refForm, form, paginas = [], pagina = 0, valores = {}, inicio = Date.now(), enviando = false;
+const codigo = decodeURIComponent((location.pathname.split('/f/')[1] || '').split('/')[0] || new URLSearchParams(location.search).get('c') || '').trim().toUpperCase();
+
+function guardarLocal(clave, valor) { try { localStorage.setItem(clave, valor); } catch (e) {} }
+function leerLocal(clave) { try { return localStorage.getItem(clave); } catch (e) { return null; } }
+
+function mostrarEstado(icono, titulo, texto, oscuro) {
+  $('formulario').classList.add('oculto');
+  const e = $('estado');
+  e.classList.remove('oculto');
+  e.innerHTML = '';
+  const i = document.createElement('div');
+  i.className = 'icono' + (oscuro ? ' oscuro' : '');
+  i.innerHTML = ICONOS[icono];
+  const h = document.createElement('h2'); h.textContent = titulo;
+  const p = document.createElement('p'); p.textContent = texto || '';
+  e.append(i, h, p);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ¿Sigue recibiendo respuestas? Devuelve el motivo si no.
+function motivoCerrado(f) {
+  if (!f.publicado || f.archivado) return 'Este formulario no está disponible.';
+  if (f.abierto === false) return f.mensajeLimite;
+  if (f.fechaLimite > 0 && Date.now() >= f.fechaLimite) return f.mensajeLimite;
+  if (f.limiteRespuestas > 0 && (f.totalRespuestas || 0) >= f.limiteRespuestas) return f.mensajeLimite;
+  return null;
+}
+
+async function iniciar() {
+  if (!codigo) { mostrarEstado('alerta', 'Enlace incompleto', 'Escanea de nuevo el código QR del formulario.', true); return; }
+  try {
+    const config = await (await fetch('/__/firebase/init.json')).json();
+    firebase.initializeApp(config);
+    db = firebase.firestore();
+    refForm = db.collection('formularios').doc(codigo);
+    const doc = await refForm.get();
+    if (!doc.exists) throw { code: 'not-found' };
+    form = doc.data();
+  } catch (e) {
+    $('titulo').textContent = 'Form.io';
+    const permiso = e && (e.code === 'permission-denied' || e.code === 'not-found');
+    mostrarEstado('alerta', permiso ? 'Formulario no encontrado' : 'Sin conexión',
+      permiso ? 'Revisa que el enlace sea correcto o que el formulario ya esté publicado.'
+              : 'No pudimos cargar el formulario. Revisa tu internet e intenta de nuevo.', true);
+    return;
+  }
+
+  form.mensajeLimite = form.mensajeLimite || 'Este formulario ya no recibe respuestas. ¡Gracias por tu interés!';
+  $('titulo').textContent = form.titulo || 'Formulario';
+  $('descripcion').textContent = form.descripcion || '';
+  document.title = (form.titulo || 'Formulario') + ' · Form.io';
+
+  const motivo = motivoCerrado(form);
+  if (motivo) { mostrarEstado('candado', 'Formulario cerrado', motivo, true); return; }
+  if (form.unaPorDispositivo && leerLocal('formio_respondio_' + codigo)) {
+    mostrarEstado('check', 'Ya respondiste', 'Este formulario permite una sola respuesta por dispositivo. ¡Gracias por participar!');
+    return;
+  }
+
+  // Cuenta la visita una sola vez por sesión del navegador
+  try {
+    if (!sessionStorage.getItem('formio_visita_' + codigo)) {
+      refForm.update({ visitas: firebase.firestore.FieldValue.increment(1) }).catch(() => {});
+      sessionStorage.setItem('formio_visita_' + codigo, '1');
+    }
+  } catch (e) {
+    refForm.update({ visitas: firebase.firestore.FieldValue.increment(1) }).catch(() => {});
+  }
+
+  armarPaginas(form.preguntas || []);
+  inicio = Date.now();
+  $('estado').classList.add('oculto');
+  $('formulario').classList.remove('oculto');
+  pintarPagina();
+}
+
+// Cada sección empieza una página nueva
+function armarPaginas(preguntas) {
+  paginas = [];
+  let actual = [];
+  preguntas.forEach((p) => {
+    if (p.tipo === 'SECCION' && actual.length) { paginas.push(actual); actual = []; }
+    actual.push(p);
+  });
+  if (actual.length || !paginas.length) paginas.push(actual);
+}
+
+function pintarPagina() {
+  const cont = $('preguntas');
+  cont.innerHTML = '';
+  const total = paginas.length;
+  $('progreso').classList.toggle('oculto', total <= 1);
+  $('txtPagina').textContent = 'Página ' + (pagina + 1) + ' de ' + total;
+  $('barra').style.width = ((pagina + 1) / total * 100) + '%';
+  $('btnAtras').classList.toggle('oculto', pagina === 0);
+  $('btnSiguiente').textContent = pagina < total - 1 ? 'Siguiente' : 'Enviar';
+
+  let numero = 0;
+  for (let k = 0; k < pagina; k++) numero += paginas[k].filter((p) => p.tipo !== 'SECCION').length;
+  paginas[pagina].forEach((p) => {
+    if (p.tipo === 'SECCION') { cont.appendChild(tarjetaSeccion(p)); return; }
+    numero++;
+    cont.appendChild(tarjetaPregunta(p, numero));
+  });
+  if (!paginas[pagina].length) {
+    const v = document.createElement('p');
+    v.className = 'desc';
+    v.textContent = 'Este formulario aún no tiene preguntas.';
+    cont.appendChild(v);
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function tarjetaSeccion(p) {
+  const d = document.createElement('div');
+  d.className = 'seccion';
+  const h = document.createElement('h2'); h.textContent = p.texto || 'Sección';
+  d.appendChild(h);
+  if (p.descripcion) { const s = document.createElement('p'); s.textContent = p.descripcion; d.appendChild(s); }
+  return d;
+}
+
+function tarjetaPregunta(p, numero) {
+  const d = document.createElement('div');
+  d.className = 'pregunta';
+  d.dataset.id = p.id;
+  const h = document.createElement('h3');
+  h.textContent = numero + '. ' + (p.texto || '');
+  if (p.obligatoria) { const r = document.createElement('span'); r.className = 'req'; r.textContent = ' *'; h.appendChild(r); }
+  d.appendChild(h);
+  if (p.descripcion) { const s = document.createElement('p'); s.className = 'desc'; s.textContent = p.descripcion; d.appendChild(s); }
+
+  const campo = document.createElement('div');
+  campo.className = 'campo';
+  const actual = valores[p.id] || [];
+  const opciones = p.opciones || [];
+
+  switch (p.tipo) {
+    case 'PARRAFO':
+    case 'TEXTO_CORTO': {
+      const el = document.createElement(p.tipo === 'PARRAFO' ? 'textarea' : 'input');
+      if (p.tipo !== 'PARRAFO') el.type = 'text';
+      el.placeholder = 'Tu respuesta';
+      el.maxLength = p.tipo === 'PARRAFO' ? 2000 : 300;
+      el.value = actual[0] || '';
+      el.addEventListener('input', () => fijar(p, el.value.trim() ? [el.value.trim()] : null, d));
+      campo.appendChild(el);
+      break;
+    }
+    case 'OPCION_MULTIPLE':
+    case 'CASILLAS': {
+      const multiple = p.tipo === 'CASILLAS';
+      opciones.forEach((op) => {
+        const l = document.createElement('label');
+        l.className = 'opcion';
+        const i = document.createElement('input');
+        i.type = multiple ? 'checkbox' : 'radio';
+        i.name = 'p_' + p.id;
+        i.value = op;
+        i.checked = actual.includes(op);
+        i.addEventListener('change', () => {
+          const marcadas = [...campo.querySelectorAll('input:checked')].map((x) => x.value);
+          fijar(p, marcadas.length ? marcadas : null, d);
+        });
+        const t = document.createElement('span'); t.textContent = op;
+        l.append(i, t);
+        campo.appendChild(l);
+      });
+      break;
+    }
+    case 'ESCALA': {
+      const max = p.escalaMax === 10 ? 10 : 5;
+      const fila = document.createElement('div');
+      fila.className = 'escala';
+      for (let n = 1; n <= max; n++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = n;
+        if (actual[0] === String(n)) b.classList.add('sel');
+        b.addEventListener('click', () => {
+          fila.querySelectorAll('button').forEach((x) => x.classList.remove('sel'));
+          b.classList.add('sel');
+          fijar(p, [String(n)], d);
+        });
+        fila.appendChild(b);
+      }
+      const etq = document.createElement('div');
+      etq.className = 'escala-etq';
+      etq.innerHTML = '<span>Nada</span><span>Mucho</span>';
+      campo.append(fila, etq);
+      break;
+    }
+    case 'FECHA': {
+      const el = document.createElement('input');
+      el.type = 'date';
+      if (actual[0]) { const [dd, mm, aa] = actual[0].split('/'); el.value = aa + '-' + mm + '-' + dd; }
+      el.addEventListener('change', () => {
+        if (!el.value) { fijar(p, null, d); return; }
+        const [aa, mm, dd] = el.value.split('-');
+        fijar(p, [dd + '/' + mm + '/' + aa], d);   // mismo formato que la app: dd/MM/yyyy
+      });
+      campo.appendChild(el);
+      break;
+    }
+  }
+  d.appendChild(campo);
+
+  const err = document.createElement('div');
+  err.className = 'error';
+  err.textContent = 'Esta pregunta es obligatoria';
+  d.appendChild(err);
+  return d;
+}
+
+function fijar(p, valor, tarjeta) {
+  if (valor) valores[p.id] = valor; else delete valores[p.id];
+  if (valor) tarjeta.classList.remove('falta');
+}
+
+function paginaCompleta() {
+  let primera = null;
+  paginas[pagina].forEach((p) => {
+    if (p.tipo === 'SECCION' || !p.obligatoria) return;
+    const t = document.querySelector('.pregunta[data-id="' + CSS.escape(p.id) + '"]');
+    const falta = !valores[p.id];
+    if (t) t.classList.toggle('falta', falta);
+    if (falta && !primera) primera = t;
+  });
+  if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  return !primera;
+}
+
+$('btnAtras').addEventListener('click', () => { if (pagina > 0) { pagina--; pintarPagina(); } });
+
+$('formulario').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  if (enviando || !paginaCompleta()) return;
+  if (pagina < paginas.length - 1) { pagina++; pintarPagina(); return; }
+
+  enviando = true;
+  const boton = $('btnSiguiente');
+  boton.disabled = true;
+  boton.textContent = 'Enviando…';
+
+  // Solo se guardan respuestas de preguntas que existen
+  const ids = new Set((form.preguntas || []).map((p) => p.id));
+  const limpias = {};
+  Object.keys(valores).forEach((k) => { if (ids.has(k)) limpias[k] = valores[k]; });
+  const duracion = Math.max(3, Math.round((Date.now() - inicio) / 1000));
+  const refNueva = refForm.collection('respuestas').doc();
+
+  try {
+    await db.runTransaction(async (tx) => {
+      const doc = await tx.get(refForm);
+      if (!doc.exists) throw new Error('cerrado');
+      const f = doc.data();
+      f.mensajeLimite = form.mensajeLimite;
+      if (motivoCerrado(f)) throw new Error('cerrado');
+      const numero = (f.totalRespuestas || 0) + 1;
+      tx.update(refForm, { totalRespuestas: numero });
+      tx.set(refNueva, { numero: numero, fecha: Date.now(), duracion: duracion, valores: limpias });
+    });
+    if (form.unaPorDispositivo) guardarLocal('formio_respondio_' + codigo, '1');
+    mostrarEstado('check', '¡Gracias por responder!', 'Tu respuesta se envió de forma anónima.');
+  } catch (e) {
+    const cerrado = (e && e.message === 'cerrado') || (e && e.code === 'permission-denied');
+    if (cerrado) {
+      mostrarEstado('candado', 'Formulario cerrado', form.mensajeLimite, true);
+    } else {
+      enviando = false;
+      boton.disabled = false;
+      boton.textContent = 'Enviar';
+      alert('No se pudo enviar tu respuesta. Revisa tu conexión e intenta de nuevo.');
+    }
+  }
+});
+
+iniciar();
+</script>
+</body>
+</html>

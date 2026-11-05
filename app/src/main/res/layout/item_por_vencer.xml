@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de un formulario por vencer (Dashboard 7.3): progreso de tiempo o de respuestas -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TarjetaBlanca"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="14dp">
+
+        <ImageView
+            android:id="@+id/imgIcono"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/verde_menta"
+            android:contentDescription="@string/desc_icono"
+            android:padding="11dp"
+            android:src="@drawable/ic_reloj"
+            app:tint="@color/azul_noche" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                style="@style/TextoTitulo"
+                android:layout_width="match_parent"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtDetalle"
+                style="@style/TextoSecundario"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="100"
+                app:indicatorColor="@color/verde_azulado"
+                app:trackColor="@color/verde_menta"
+                app:trackCornerRadius="4dp"
+                app:trackThickness="8dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/desc_icono"
+            android:src="@drawable/ic_flecha_der"
+            app:tint="@color/verde_azulado" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

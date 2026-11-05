@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 4.2 PANTALLA COMPLETA PARA ESCANEAR: QR grande con brillo al máximo -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/ic_qr_p"
+            android:drawablePadding="6dp"
+            android:drawableTint="@color/verde_menta"
+            android:gravity="center_vertical"
+            android:text="@string/qr_instruccion"
+            android:textColor="@color/verde_menta"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/fondo_qr"
+            android:elevation="10dp"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imgQr"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:contentDescription="@string/desc_qr" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtEnlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/fondo_chip"
+            android:backgroundTint="@color/verde_menta"
+            android:paddingStart="16dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="6dp"
+            android:textColor="@color/azul_noche"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/vp_hecho_con"
+            android:textColor="@color/blanco"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnCerrar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/circulo"
+        android:backgroundTint="@color/blanco"
+        android:contentDescription="@string/desc_cerrar"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_cerrar"
+        app:tint="@color/azul_noche" />
+</FrameLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Una pregunta con lo que se contestó (detalle de respuesta) -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TarjetaBlanca"
+    android:layout_marginBottom="10dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp">
+
+        <ImageView
+            android:id="@+id/imgTipo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/verde_azulado"
+            android:contentDescription="@string/desc_icono"
+            android:padding="9dp"
+            app:tint="@color/blanco" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtPregunta"
+                style="@style/TextoSecundario"
+                android:layout_width="match_parent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtRespuesta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/azul_noche"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

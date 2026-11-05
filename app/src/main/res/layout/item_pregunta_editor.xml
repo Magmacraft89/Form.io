@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de una pregunta en el editor -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TarjetaBlanca"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="14dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/desc_mover"
+            android:padding="4dp"
+            android:src="@drawable/ic_arrastrar"
+            app:tint="@color/verde_azulado" />
+
+        <ImageView
+            android:id="@+id/imgTipo"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/verde_menta"
+            android:contentDescription="@string/desc_icono"
+            android:padding="10dp"
+            app:tint="@color/azul_noche" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/verde_azulado"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTexto"
+                style="@style/TextoTitulo"
+                android:layout_width="match_parent"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtDetalle"
+                style="@style/TextoSecundario"
+                android:layout_width="match_parent"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtObligatoria"
+                style="@style/Etiqueta"
+                android:layout_marginTop="6dp"
+                android:backgroundTint="@color/azul_noche"
+                android:text="@string/obligatoria"
+                android:textColor="@color/verde_menta"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="@string/accion_editar"
+            android:src="@drawable/ic_editar"
+            app:tint="@color/verde_azulado" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

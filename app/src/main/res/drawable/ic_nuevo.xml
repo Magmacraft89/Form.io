@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ícono de línea de Form.io (el color final se da con tint) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M7,3 H17 A2,2 0 0 1 19,5 V19 A2,2 0 0 1 17,21 H7 A2,2 0 0 1 5,19 V5 A2,2 0 0 1 7,3 Z"
+        android:strokeWidth="2"
+        android:strokeColor="@color/blanco"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M12,8 V16"
+        android:strokeWidth="2"
+        android:strokeColor="@color/blanco"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M8,12 H16"
+        android:strokeWidth="2"
+        android:strokeColor="@color/blanco"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

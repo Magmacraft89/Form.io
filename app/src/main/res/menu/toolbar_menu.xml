@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botones de la Toolbar -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_nuevo"
+        android:icon="@drawable/ic_agregar"
+        android:title="@string/menu_nuevo"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_perfil"
+        android:title="@string/menu_perfil"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_salir"
+        android:title="@string/menu_salir"
+        app:showAsAction="never" />
+</menu>

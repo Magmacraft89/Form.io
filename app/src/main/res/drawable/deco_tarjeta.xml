@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aro blanco decorativo que se asoma por la esquina de arriba a la derecha de las tarjetas -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="110dp" android:height="110dp" android:gravity="top|end"
+        android:top="-50dp" android:right="-40dp">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke android:width="14dp" android:color="@color/blanco" />
+        </shape>
+    </item>
+</layer-list>
